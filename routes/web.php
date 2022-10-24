@@ -18,10 +18,13 @@ use App\Http\Controllers\HtmlToPdfController;
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    // return $router->app->version();
+    die();
 });
 
 $router->get('/html-to-pdf/{pdfname}', function(Request $request, $pdfname) {
-    $generatePdf = new HtmlToPdfController();
-    return $generatePdf->generatePdf($pdfname, $request->url);
+    
+    $pdfController = new HtmlToPdfController();
+    return $pdfController->generatePdf($pdfname, $request->url);
+
 });
